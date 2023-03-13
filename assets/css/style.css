@@ -85,5 +85,12 @@ footer {
   color: white;
   padding: 2% 3%;
   margin: 3%;
-  border: 1px solid #007b97;
+  border: 2px solid #007b97;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+
+#deleteBtn:hover {
+  background-color: white;
+  color: #06aed5;
 }

@@ -1,21 +1,20 @@
-
-// remove the current values of textarea elements. It is nessary in case if user entered some value but never saved it. Otherwise entered value will appear in the textarea element
+// clear the existing values of the textarea elements to ensure that any unsaved user input does not appear in the textarea.
 $('.description').val(''); 
 
 
 $(document).ready(function() {
   
-  // updetes current time every second to display real time change
+  // update the current time every second to display real-time changes.
   const updateTime = () => {
     setTimeout(renderCurrentDay, 1000);
   };
 
   
-  // renders current day for the header
+  // display the current day in the header.
   const renderCurrentDay = () => {
     
     const currentDay = dayjs().format('dddd, MMM D,'); 
-    const currentTime = dayjs().format(' 11:mm:ss A');
+    const currentTime = dayjs().format(' h:mm:ss A');
   
     $('#current-day').text(currentDay);
     $('#current-time').text(currentTime);
@@ -24,16 +23,16 @@ $(document).ready(function() {
   };
 
 
-  // every second checks for current hour and if current hour has increased by 1 hour, updates color of the time blocks
+  // check the current hour every second, and if the current hour has increased by one hour, update the color of the time blocks.
   const updateBlockColor = () => {
     setTimeout(timeBlockColor, 1000);
   };
 
 
-  // updates the color of time blocks based on the current time
+  // update the color of the time blocks based on the current time.
   const timeBlockColor = () => {
     
-    const currentHour =  11; //dayjs().format('H');
+    const currentHour =  dayjs().format('H');
   
     $('.time-block').each(function () {
   
@@ -60,7 +59,7 @@ $(document).ready(function() {
   };
   
   
-  // "save button" event listener saves the textarea data to the local storage
+  // add an event listener to the "save" button that saves the textarea data to the local storage.
   $('.saveBtn').click(function() {
     
     const schedulerContent = JSON.parse(localStorage.getItem('schedulerContent') || '[]');
@@ -70,7 +69,7 @@ $(document).ready(function() {
       timeBlockText: $(this).siblings('.description').val(),
     };
     
-    // removes saved value of the textarea if the user saves new value in the same textarea
+    // remove the previously saved value of the textarea if the user saves a new value in the same textarea.
     if (schedulerContent.length > 0) {
       for (let i = 0; i < schedulerContent.length; i++) {
         if (schedulerContent[i].timeBlockId === timeBlockContent.timeBlockId) {
@@ -85,7 +84,7 @@ $(document).ready(function() {
   });
   
   
-  // retrives data from local storage and sets the existing value to the .time-block text area
+  // retrieve data from local storage and set the existing value to the textarea of the ".time-block".
   const renderSchedulerContent = () => {
     
     const schedulerContent = JSON.parse(localStorage.getItem('schedulerContent') || '[]');
@@ -108,7 +107,7 @@ $(document).ready(function() {
   };
   
   
-  // event listener for "delete events" button
+  // add an event listener for the "delete events" button.
   $('#deleteBtn').click(function () {
     
     $('.description').val('');
@@ -117,13 +116,13 @@ $(document).ready(function() {
   });
   
   
-  // renders current day and time in the header
+  // display the current day and time in the header.
   renderCurrentDay();
   
-  // retrieves data from the local storage and fills the associted time blocks with saved values
+  // fetching information from the local storage and populating the relevant time slots with the stored data.
   renderSchedulerContent();
 
-  // renders associated color of the time blocks based on the current time 
+  // assigns the appropriate color to the time blocks based on the present time.
   timeBlockColor();
   
 });
