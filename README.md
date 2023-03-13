@@ -5,11 +5,11 @@
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Technologies Used](#technologies-used)
 * [Preview](#preview)
 * [Setup](#setup)
 * [Usage](#usage)
 * [Features](#features)
+* [Technologies Used](#technologies-used)
 * [Project Status](#project-status)
 * [User Story](#user-tory)
 * [Acceptance Criteria](#acceptance-criteria)
@@ -20,15 +20,6 @@
 ## General Information
 - The primary objective of the Work Day Scheduler is to assist users in organizing their work schedule.
 - Users have the ability to create and modify events in each of the time slots between 8:00 AM to 5:00 PM.
-
-
-## Technologies Used
-- JavaScript
-- HTML5
-- CSS
-- Local Storage
-- JSON
-- JQUERY
 
 
 ## Preview
@@ -54,6 +45,15 @@ There is no need for installation as the web application is readily available fo
 - When user clicks on the "save" button, the event details are saved to the local storage.
 - If user modifies the event description and clicks on the "save" button, the updated event details will overwrite the previously saved event in the local storage.
 - The "delete" button located at the bottom of the page can be used to delete previously saved events from the local storage.
+
+
+## Technologies Used
+- JavaScript
+- HTML5
+- CSS
+- Local Storage
+- JSON
+- JQUERY
 
 
 ## Project Status
